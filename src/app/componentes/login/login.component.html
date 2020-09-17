@@ -1,0 +1,26 @@
+<br>
+<div class="container" style="text-align: center;">
+    <hr>
+    <h1 style="text-align: center;">Tabla de usuarios</h1>
+    <hr>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">Cedula</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of persona" style="text-align: center;">
+
+                <td>{{person.cedula}}</td>
+                <td>{{person.apellido}}</td>
+                <td>{{person.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>s
