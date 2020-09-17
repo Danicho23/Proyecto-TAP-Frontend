@@ -4,10 +4,13 @@ import { HttpClient } from '@angular/common/http';
 
 
 import { BasicErrorControllerService } from './api/basicErrorController.service';
+import { CategoriaControllerService } from './api/categoriaController.service';
 import { EmpresaControllerService } from './api/empresaController.service';
 import { OrdenControllerService } from './api/ordenController.service';
 import { PersonaControllerService } from './api/personaController.service';
+import { ProductoControllerService } from './api/productoController.service';
 import { ProvedorControllerService } from './api/provedorController.service';
+import { UsuarioControllerService } from './api/usuarioController.service';
 
 @NgModule({
   imports:      [],
@@ -15,10 +18,13 @@ import { ProvedorControllerService } from './api/provedorController.service';
   exports:      [],
   providers: [
     BasicErrorControllerService,
+    CategoriaControllerService,
     EmpresaControllerService,
     OrdenControllerService,
     PersonaControllerService,
-    ProvedorControllerService ]
+    ProductoControllerService,
+    ProvedorControllerService,
+    UsuarioControllerService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {

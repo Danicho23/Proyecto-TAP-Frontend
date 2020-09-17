@@ -17,15 +17,15 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
-import { Persona } from '../model/persona';
 import { ResponseEntity } from '../model/responseEntity';
+import { Usuario } from '../model/usuario';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
 @Injectable()
-export class PersonaControllerService {
+export class UsuarioControllerService {
 
     protected basePath = '//localhost:7070/';
     public defaultHeaders = new HttpHeaders();
@@ -57,62 +57,15 @@ export class PersonaControllerService {
 
 
     /**
-     * findByNombre
-     * 
-     * @param id id
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public findByNombreUsingGET(id: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Persona>>;
-    public findByNombreUsingGET(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Persona>>>;
-    public findByNombreUsingGET(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Persona>>>;
-    public findByNombreUsingGET(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling findByNombreUsingGET.');
-        }
-
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (id !== undefined && id !== null) {
-            queryParameters = queryParameters.set('id', <any>id);
-        }
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.request<Array<Persona>>('get',`${this.basePath}/persona/findById/${encodeURIComponent(String(id))}`,
-            {
-                params: queryParameters,
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
      * listarPersonas
      * 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listarPersonasUsingGET1(observe?: 'body', reportProgress?: boolean): Observable<Array<Persona>>;
-    public listarPersonasUsingGET1(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Persona>>>;
-    public listarPersonasUsingGET1(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Persona>>>;
-    public listarPersonasUsingGET1(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public listarPersonasUsingGET3(observe?: 'body', reportProgress?: boolean): Observable<Array<Usuario>>;
+    public listarPersonasUsingGET3(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Usuario>>>;
+    public listarPersonasUsingGET3(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Usuario>>>;
+    public listarPersonasUsingGET3(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -129,7 +82,7 @@ export class PersonaControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<Array<Persona>>('get',`${this.basePath}/persona/list`,
+        return this.httpClient.request<Array<Usuario>>('get',`${this.basePath}/usuarios/listUser`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -140,19 +93,19 @@ export class PersonaControllerService {
     }
 
     /**
-     * savePerson
+     * saveCategoria
      * 
-     * @param body persona
+     * @param body user
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public savePersonUsingPOST(body: Persona, observe?: 'body', reportProgress?: boolean): Observable<ResponseEntity>;
-    public savePersonUsingPOST(body: Persona, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseEntity>>;
-    public savePersonUsingPOST(body: Persona, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseEntity>>;
-    public savePersonUsingPOST(body: Persona, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public saveCategoriaUsingPOST2(body: Usuario, observe?: 'body', reportProgress?: boolean): Observable<ResponseEntity>;
+    public saveCategoriaUsingPOST2(body: Usuario, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseEntity>>;
+    public saveCategoriaUsingPOST2(body: Usuario, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseEntity>>;
+    public saveCategoriaUsingPOST2(body: Usuario, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling savePersonUsingPOST.');
+            throw new Error('Required parameter body was null or undefined when calling saveCategoriaUsingPOST2.');
         }
 
         let headers = this.defaultHeaders;
@@ -175,7 +128,7 @@ export class PersonaControllerService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ResponseEntity>('post',`${this.basePath}/persona/create`,
+        return this.httpClient.request<ResponseEntity>('post',`${this.basePath}/usuarios/saveUser`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
