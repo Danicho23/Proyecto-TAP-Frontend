@@ -12,7 +12,6 @@
 
 export interface Usuario { 
     idPersona?: string;
-    idPersona?: string;
     idUser?: string;
     password?: string;
     userName?: string;

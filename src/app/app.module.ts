@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { HeaderComponent} from './componentes/header/header.component';
+import { FooterComponent} from './componentes/footer/footer.component';
+import { HomeComponent } from './componentes/home/home.component';
 
 import { FormsModule } from '@angular/forms';
 import { PersonaControllerService } from '.';
@@ -11,6 +14,9 @@ import { PersonaControllerService } from '.';
   declarations: [
     AppComponent,
     LoginComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

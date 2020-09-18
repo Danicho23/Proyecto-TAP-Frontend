@@ -12,11 +12,10 @@ export class LoginComponent implements OnInit {
   constructor(private service: PersonaControllerService) { }
   persona: Persona [];
   ngOnInit(): void {
-    this.service.listarPersonasUsingGET()
-    .subscribe(data => {
-      this.persona = data;
-    }
-    );
+    //this.service.listarPersonasUsingGET()
+    //.subscribe(data => {
+      //this.persona = data;
+    //}
+    //);
   }
-
 }
