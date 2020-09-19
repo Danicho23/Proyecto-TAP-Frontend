@@ -5,12 +5,11 @@ import {TecnologiaComponent} from './componentes/tecnologia/tecnologia.component
 import { HogarComponent } from './componentes/hogar/hogar.component';
 import { ElectrodomesticosComponent} from './componentes/electrodomesticos/electrodomesticos.component';
 
-
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'tecnologia', component: TecnologiaComponent },
   { path: 'hogar', component: HogarComponent },
-  { path: 'electrodomesticos', component: ElectrodomesticosComponent }
+  { path: 'electrodomesticos', component: ElectrodomesticosComponent },
 ];
 
 @NgModule({

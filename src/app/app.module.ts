@@ -7,6 +7,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { HeaderComponent} from './componentes/header/header.component';
 import { FooterComponent} from './componentes/footer/footer.component';
 import { HomeComponent } from './componentes/home/home.component';
+import {RegistrarLoginComponent} from './componentes/registrar-login/registrar-login.component';
 
 import { FormsModule } from '@angular/forms';
 import { PersonaControllerService } from '.';
@@ -16,7 +17,8 @@ import { PersonaControllerService } from '.';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    RegistrarLoginComponent
   ],
   imports: [
     BrowserModule,
