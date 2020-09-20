@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {Persona} from 'src/app/model/persona'
-import {PersonaControllerService} from 'src/app/api/personaController.service'
+import {Usuario} from 'src/app/model/usuario';
+import {UsuarioControllerService} from 'src/app/api/usuarioController.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,22 +11,22 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  person: Persona = {
-    apellido:null,
-    cedula: null,
-    email:null,
+  user: Usuario = {
+    id: null,
     idPersona: null,
-    telefono: null
+    password: null,
+    userName: null,
+    userType: null
   }
   msg='';
 
-  constructor(private servicePers: PersonaControllerService, private router: Router) { }
+  constructor(private serviceUser: UsuarioControllerService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   loginUser(){
-    this.servicePers.savePersonUsingPOST(this.person).subscribe(
+    this.serviceUser.saveCategoriaUsingPOST2(this.user).subscribe(
       data=>{
         console.log(data);
         this.router.navigate(['/logeado']);
