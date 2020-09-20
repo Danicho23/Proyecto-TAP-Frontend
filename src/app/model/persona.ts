@@ -14,6 +14,6 @@ export interface Persona {
     apellido?: string;
     cedula?: string;
     email?: string;
-    idPersona?: number;
+    idPersona?: string;
     telefono?: string;
 }

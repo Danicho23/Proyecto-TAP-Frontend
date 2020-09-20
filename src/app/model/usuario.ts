@@ -11,8 +11,8 @@
  */
 
 export interface Usuario { 
+    id?: string;
     idPersona?: string;
-    idUser?: string;
     password?: string;
     userName?: string;
     userType?: string;

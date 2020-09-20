@@ -11,7 +11,7 @@
  */
 
 export interface Orden { 
-    idPersona?: number;
-    idProductos?: number;
-    idorde?: number;
+    id?: string;
+    idProductos?: string;
+    idPersona?: string;
 }

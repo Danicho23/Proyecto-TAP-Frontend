@@ -13,6 +13,6 @@
 export interface Empresa { 
     calificacion?: number;
     fecha?: string;
-    idCedulaPersona?: string;
-    idProvedor?: number;
+    id?: string;
+    idPersona?: string;
 }

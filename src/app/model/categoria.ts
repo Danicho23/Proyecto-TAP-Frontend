@@ -11,7 +11,7 @@
  */
 
 export interface Categoria { 
-    idCategoria?: string;
+    id?: string;
     idProductos?: string;
     nombreCategoria?: string;
 }

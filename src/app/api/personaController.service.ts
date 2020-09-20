@@ -57,31 +57,26 @@ export class PersonaControllerService {
 
 
     /**
-     * findByNombre
+     * delete
      * 
      * @param id id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public findByNombreUsingGET(id: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Persona>>;
-    public findByNombreUsingGET(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Persona>>>;
-    public findByNombreUsingGET(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Persona>>>;
-    public findByNombreUsingGET(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public deleteUsingDELETE(id: string, observe?: 'body', reportProgress?: boolean): Observable<string>;
+    public deleteUsingDELETE(id: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
+    public deleteUsingDELETE(id: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
+    public deleteUsingDELETE(id: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling findByNombreUsingGET.');
-        }
-
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (id !== undefined && id !== null) {
-            queryParameters = queryParameters.set('id', <any>id);
+            throw new Error('Required parameter id was null or undefined when calling deleteUsingDELETE.');
         }
 
         let headers = this.defaultHeaders;
 
         // to determine the Accept header
         let httpHeaderAccepts: string[] = [
-            'application/json'
+            '*/*'
         ];
         const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         if (httpHeaderAcceptSelected != undefined) {
@@ -92,9 +87,8 @@ export class PersonaControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<Array<Persona>>('get',`${this.basePath}/persona/findById/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<string>('delete',`${this.basePath}/persona/empleados/delete/${encodeURIComponent(String(id))}`,
             {
-                params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
