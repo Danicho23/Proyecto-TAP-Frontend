@@ -4,12 +4,14 @@ import {HomeComponent} from './componentes/home/home.component';
 import {TecnologiaComponent} from './componentes/tecnologia/tecnologia.component';
 import { HogarComponent } from './componentes/hogar/hogar.component';
 import { ElectrodomesticosComponent} from './componentes/electrodomesticos/electrodomesticos.component';
+import { ListallproductComponent} from './componentes/listallproduct/listallproduct.component'
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'tecnologia', component: TecnologiaComponent },
   { path: 'hogar', component: HogarComponent },
   { path: 'electrodomesticos', component: ElectrodomesticosComponent },
+  { path: 'logeado', component: ListallproductComponent }
 ];
 
 @NgModule({
