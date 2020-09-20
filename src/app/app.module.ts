@@ -7,11 +7,13 @@ import { LoginComponent } from './componentes/login/login.component';
 import { HeaderComponent} from './componentes/header/header.component';
 import { FooterComponent} from './componentes/footer/footer.component';
 import { HomeComponent } from './componentes/home/home.component';
-import {RegistrarLoginComponent} from './componentes/registrar-login/registrar-login.component';
 import { ListallproductComponent} from './componentes/listallproduct/listallproduct.component';
 
 import { FormsModule } from '@angular/forms';
 import { PersonaControllerService } from '.';
+import { UsuarioControllerService} from '.';
+import { from } from 'rxjs';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,6 @@ import { PersonaControllerService } from '.';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    RegistrarLoginComponent,
     ListallproductComponent
   ],
   imports: [
@@ -28,7 +29,7 @@ import { PersonaControllerService } from '.';
     HttpClientModule,
     FormsModule
   ],
-  providers: [PersonaControllerService],
+  providers: [PersonaControllerService, UsuarioControllerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

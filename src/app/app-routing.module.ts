@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './componentes/home/home.component';
-import {TecnologiaComponent} from './componentes/tecnologia/tecnologia.component';
+import { HomeComponent} from './componentes/home/home.component';
+import { TecnologiaComponent} from './componentes/tecnologia/tecnologia.component';
 import { HogarComponent } from './componentes/hogar/hogar.component';
 import { ElectrodomesticosComponent} from './componentes/electrodomesticos/electrodomesticos.component';
 import { ListallproductComponent} from './componentes/listallproduct/listallproduct.component'
@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'tecnologia', component: TecnologiaComponent },
   { path: 'hogar', component: HogarComponent },
   { path: 'electrodomesticos', component: ElectrodomesticosComponent },
-  { path: 'logeado', component: ListallproductComponent }
+  { path: 'logeado', component: ListallproductComponent },
+  { path: '', component: ListallproductComponent,pathMatch:'full' },
+  { path: '**', redirectTo: '/',pathMatch:'full' }
 ];
 
 @NgModule({
