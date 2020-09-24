@@ -128,7 +128,7 @@ export class UsuarioControllerService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ResponseEntity>('post',`${this.basePath}/usuarios/saveUser`,
+        return this.httpClient.request<ResponseEntity>('post',`${this.basePath}usuarios/saveUser`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

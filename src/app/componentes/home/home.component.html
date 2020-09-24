@@ -10,7 +10,7 @@
       <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" [(ngModel)]="user.password" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
-        <small class="text-danger" [class.d-none]="password.valid || password.untouched">email requerido</small>     
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">contraseña requerido</small>     
       </div>
       <div class="checkbox">
         <label><input type="checkbox" name="remember"> Remember me</label>
