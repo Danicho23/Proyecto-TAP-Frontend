@@ -1,1 +1,24 @@
-<p>listallproduct works!</p>
+<br>
+<div class="container" style="text-align: center;">
+    <hr>
+    <h1 style="text-align: center;">Tabla de productos</h1>
+    <hr>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">#</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Predio $</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let products of productos" style="text-align: center;">
+                <td>{{products.catidadProduct}}</td>
+                <td>{{products.descripProduct}}</td>
+                <td>{{products.precioProduct}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

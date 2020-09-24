@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { PersonaControllerService } from '.';
 import { UsuarioControllerService} from '.';
 import { from } from 'rxjs';
+import { ProductoControllerService } from './api/api';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { from } from 'rxjs';
     HttpClientModule,
     FormsModule
   ],
-  providers: [PersonaControllerService, UsuarioControllerService],
+  providers: [PersonaControllerService, UsuarioControllerService, ProductoControllerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
