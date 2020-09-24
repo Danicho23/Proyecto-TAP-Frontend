@@ -14,6 +14,7 @@ import { PersonaControllerService } from '.';
 import { UsuarioControllerService} from '.';
 import { from } from 'rxjs';
 import { ProductoControllerService } from './api/api';
+import { AgregarProductoComponent } from './componentes/agregar-producto/agregar-producto.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductoControllerService } from './api/api';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    ListallproductComponent
+    ListallproductComponent,
+    AgregarProductoComponent
   ],
   imports: [
     BrowserModule,
