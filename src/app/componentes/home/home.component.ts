@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit {
         console.log(data);
         this.router.navigate(['/logeado']);
       },
-      erro=>{
+      error=>{
+        console.log(error)
         this.msg="credenciales incorrectos";
       }
     );
