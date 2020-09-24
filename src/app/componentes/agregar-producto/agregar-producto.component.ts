@@ -16,7 +16,7 @@ export class AgregarProductoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  newCustomer(): void {
+  newProduct(): void {
     this.submitted = false;
     this.producto = new Productos ();
   }
