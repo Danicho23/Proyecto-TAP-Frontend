@@ -10,19 +10,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  user: Usuario = {
-    id: null,
-    idPersona: null,
-    password: null,
-    userName: null,
-    userType: null
-  }
+  user: Usuario = new Usuario();
+  //user: Usuario = {
+    //id: null,
+    //idPersona: null,
+    //password: null,
+    //userName: null,
+    //userType: null
+  //}
   msg='';
 
   constructor(private serviceUser: UsuarioControllerService, private router: Router) { }
 
   ngOnInit(): void {
+    
   }
 
   loginUser(){
