@@ -57,15 +57,15 @@ export class ProductoControllerService {
 
 
     /**
-     * listarPersonas
+     * listarProductos
      * 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listarPersonasUsingGET2(observe?: 'body', reportProgress?: boolean): Observable<Array<Productos>>;
-    public listarPersonasUsingGET2(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Productos>>>;
-    public listarPersonasUsingGET2(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Productos>>>;
-    public listarPersonasUsingGET2(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public listarProductosUsingGET(observe?: 'body', reportProgress?: boolean): Observable<Array<Productos>>;
+    public listarProductosUsingGET(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Productos>>>;
+    public listarProductosUsingGET(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Productos>>>;
+    public listarProductosUsingGET(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -82,7 +82,7 @@ export class ProductoControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<Array<Productos>>('get',`${this.basePath}/producto/list`,
+        return this.httpClient.request<Array<Productos>>('get',`${this.basePath}/productos/list`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -93,19 +93,19 @@ export class ProductoControllerService {
     }
 
     /**
-     * saveCategoria
+     * saveProductos
      * 
      * @param body product
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public saveCategoriaUsingPOST1(body: Productos, observe?: 'body', reportProgress?: boolean): Observable<ResponseEntity>;
-    public saveCategoriaUsingPOST1(body: Productos, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseEntity>>;
-    public saveCategoriaUsingPOST1(body: Productos, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseEntity>>;
-    public saveCategoriaUsingPOST1(body: Productos, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public saveProductosUsingPOST(body: Productos, observe?: 'body', reportProgress?: boolean): Observable<ResponseEntity>;
+    public saveProductosUsingPOST(body: Productos, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseEntity>>;
+    public saveProductosUsingPOST(body: Productos, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseEntity>>;
+    public saveProductosUsingPOST(body: Productos, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling saveCategoriaUsingPOST1.');
+            throw new Error('Required parameter body was null or undefined when calling saveProductosUsingPOST.');
         }
 
         let headers = this.defaultHeaders;
@@ -128,7 +128,7 @@ export class ProductoControllerService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ResponseEntity>('post',`${this.basePath}/producto/saveProductos`,
+        return this.httpClient.request<ResponseEntity>('post',`${this.basePath}/productos/saveProductos`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

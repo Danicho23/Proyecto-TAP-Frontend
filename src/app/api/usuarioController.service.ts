@@ -57,15 +57,15 @@ export class UsuarioControllerService {
 
 
     /**
-     * listarPersonas
+     * listUser
      * 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listarPersonasUsingGET3(observe?: 'body', reportProgress?: boolean): Observable<Array<Usuario>>;
-    public listarPersonasUsingGET3(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Usuario>>>;
-    public listarPersonasUsingGET3(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Usuario>>>;
-    public listarPersonasUsingGET3(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public listUserUsingGET(observe?: 'body', reportProgress?: boolean): Observable<Array<Usuario>>;
+    public listUserUsingGET(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Usuario>>>;
+    public listUserUsingGET(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Usuario>>>;
+    public listUserUsingGET(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -82,7 +82,7 @@ export class UsuarioControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<Array<Usuario>>('get',`${this.basePath}/usuarios/listUser`,
+        return this.httpClient.request<Array<Usuario>>('get',`${this.basePath}/user/listUser`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -93,19 +93,19 @@ export class UsuarioControllerService {
     }
 
     /**
-     * saveCategoria
+     * saveUser
      * 
      * @param body user
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public saveCategoriaUsingPOST2(body: Usuario, observe?: 'body', reportProgress?: boolean): Observable<ResponseEntity>;
-    public saveCategoriaUsingPOST2(body: Usuario, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseEntity>>;
-    public saveCategoriaUsingPOST2(body: Usuario, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseEntity>>;
-    public saveCategoriaUsingPOST2(body: Usuario, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public saveUserUsingPOST(body: Usuario, observe?: 'body', reportProgress?: boolean): Observable<ResponseEntity>;
+    public saveUserUsingPOST(body: Usuario, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseEntity>>;
+    public saveUserUsingPOST(body: Usuario, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseEntity>>;
+    public saveUserUsingPOST(body: Usuario, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling saveCategoriaUsingPOST2.');
+            throw new Error('Required parameter body was null or undefined when calling saveUserUsingPOST.');
         }
 
         let headers = this.defaultHeaders;
@@ -128,7 +128,7 @@ export class UsuarioControllerService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<ResponseEntity>('post',`${this.basePath}usuarios/saveUser`,
+        return this.httpClient.request<ResponseEntity>('post',`${this.basePath}/user/saveUser`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,
