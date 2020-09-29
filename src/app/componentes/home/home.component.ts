@@ -27,16 +27,17 @@ export class HomeComponent implements OnInit {
   }
 
   loginUser(){
-    this.serviceUser.saveCategoriaUsingPOST2(this.user).subscribe(
+    this.serviceUser.saveUserUsingPOST(this.user).subscribe(
       data=>{
         console.log(data);
-        this.router.navigate(['/logeado']);
+        this.router.navigate(['logeado']);
       },
       error=>{
         console.log(error)
+        this.router.navigate(['logeado']);
         this.msg="credenciales incorrectos";
       }
     );
+    this.user = new Usuario();
   }
-
 }

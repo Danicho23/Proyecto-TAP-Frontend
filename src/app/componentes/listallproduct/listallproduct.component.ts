@@ -8,14 +8,22 @@ import { Productos } from '../../model/productos';
   styleUrls: ['./listallproduct.component.css']
 })
 export class ListallproductComponent implements OnInit {
+  productos: Productos[];
 
   constructor(private service: ProductoControllerService) { }
-  productos: Productos [];
+
   ngOnInit(): void {
-    this.service.listarPersonasUsingGET2()
-    .subscribe(data => {
-      this.productos = data;
-    }
-    );
+    this.service.listarProductosUsingGET()
+      .subscribe(data => {
+        this.productos = data;
+      }
+      );
   }
+
+  //buscarPubicacion(){
+  //this.service.buscarPublicaciones(this.model.cedula).subscribe(datos => {
+  //this.publicaciones = datos;
+  //console.log(datos);
+  //});
+  //}
 }

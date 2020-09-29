@@ -21,7 +21,7 @@ export class AgregarProductoComponent implements OnInit {
     this.producto = new Productos ();
   }
   save() {
-    this.service.saveCategoriaUsingPOST1(this.producto)
+    this.service.saveProductosUsingPOST(this.producto)
       .subscribe(data => console.log(data), error => console.log(error));
     this.producto = new Productos();
   
