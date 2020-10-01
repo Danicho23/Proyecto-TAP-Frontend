@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'ingreasarProducto', component: AgregarProductoComponent },
   { path: 'hogar', component: HogarComponent },
   { path: 'electrodomesticos', component: ElectrodomesticosComponent },
-  { path: 'logeado', component: ListallproductComponent },
+  { path: 'all', component: ListallproductComponent },
   { path: '', component: ListallproductComponent,pathMatch:'full' },
   { path: '**', redirectTo: '/',pathMatch:'full' }
 ];

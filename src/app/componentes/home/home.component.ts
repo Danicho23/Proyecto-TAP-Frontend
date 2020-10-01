@@ -30,11 +30,11 @@ export class HomeComponent implements OnInit {
     this.serviceUser.saveUserUsingPOST(this.user).subscribe(
       data=>{
         console.log(data);
-        this.router.navigate(['logeado']);
+        this.router.navigate(['all']);
       },
       error=>{
         console.log(error)
-        this.router.navigate(['logeado']);
+        this.router.navigate(['all']);
         this.msg="credenciales incorrectos";
       }
     );
