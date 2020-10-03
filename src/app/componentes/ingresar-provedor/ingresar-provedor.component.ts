@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProvedorControllerService } from '../../api/provedorController.service';
 import { Proveedor } from '../../model/proveedor';
 
@@ -11,7 +12,7 @@ export class IngresarProvedorComponent implements OnInit {
 
   proveedor: Proveedor = new Proveedor();
   submitted = false;
-  constructor(private service: ProvedorControllerService) { }
+  constructor(private service: ProvedorControllerService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +34,7 @@ export class IngresarProvedorComponent implements OnInit {
   }
 
   abrir(){
-    
+    this.router.navigate(['ingreasarProducto']);
   }
 
 }

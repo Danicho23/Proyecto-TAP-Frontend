@@ -26,13 +26,13 @@
             <button type="submit" class="btn btn-success container">Guardar.</button>
             <br><br>
         </form>
-        <input type="button" class="btn btn-success container" value="Continuar proveedor ya existe.">
+        <button type="submit" class="btn btn-success container" (click)="abrir()">Continuar, si existe el proveedor.</button>
 
     </div>
 </div>
 
 <div [hidden]="!submitted" class="container" style="text-align: center;">
-    <h4>Guardado correctamente!</h4>
-    <button class="btn btn-success" (click)="newProduct()">Agregar nuevo producto ...</button>
+    <h4>Guardado correctamente !</h4>
+    <button class="btn btn-success" (click)="newProduct()">Agregar nuevo proveedor ...</button>
     <br>
 </div>
