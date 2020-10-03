@@ -27,12 +27,19 @@
             <br><br>
         </form>
         <button type="submit" class="btn btn-success container" (click)="abrir()">Continuar, si existe el proveedor.</button>
-
+        <br>
     </div>
 </div>
 
-<div [hidden]="!submitted" class="container" style="text-align: center;">
+<div [hidden]="!submitted" class="container card" style="text-align: center;">
     <h4>Guardado correctamente !</h4>
-    <button class="btn btn-success" (click)="newProduct()">Agregar nuevo proveedor ...</button>
+    <hr>
+    <div>
+        <button class="btn btn-success" (click)="newProduct()">Agregar nuevo proveedor ...</button>
+
+    </div>
     <br>
+    <div>
+        <button class="btn btn-success " (click)="abrir()">Registrar producto ...</button>
+    </div>
 </div>

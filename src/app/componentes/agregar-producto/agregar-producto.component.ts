@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoControllerService } from '../../api/productoController.service';
 import { Productos } from '../../model/productos';
+import { ProvedorControllerService } from '../../api/provedorController.service';
+import { Proveedor } from '../../model/proveedor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -10,11 +13,17 @@ import { Productos } from '../../model/productos';
 export class AgregarProductoComponent implements OnInit {
 
   producto: Productos = new Productos ();
+  proveedor: Proveedor[];
   submitted = false;
   url=null;
-  constructor(private service: ProductoControllerService ) { }
+  constructor(private service: ProductoControllerService, private serviceProveedor: ProvedorControllerService,  private router: Router) { }
 
   ngOnInit(): void {
+    this.serviceProveedor.listarProvedorUsingGET()
+      .subscribe(data => {
+        this.proveedor = data;
+      }
+      );
   }
 
   newProduct(): void {
@@ -31,6 +40,9 @@ export class AgregarProductoComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.save();
+  }
+  abrir(){
+    this.router.navigate(['ingreasarProducto']);
   }
   
   readUrl(event:any) {

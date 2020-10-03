@@ -10,9 +10,9 @@
                 <input type="text" class="form-control" id="catidadProduct" required [(ngModel)]="producto.catidadProduct" name="catidadProduct">
             </div>
             <div class="form-group">
-                <label for="inputState ">State</label>
+                <label for="inputState ">Provedor</label>
                 <select id="inputState " class="form-control ">
-                  <option selected>Choose...</option>
+                  <option *ngFor="let prove of proveedor">{{prove.nombre}}</option>
                 </select>
             </div>
             <div class="form-group ">
@@ -33,6 +33,6 @@
     <div [hidden]="!submitted " class="container " style="text-align: center; ">
         <h4>Guardado correctamente!</h4>
         <button class="btn btn-success " (click)="newProduct() ">Agregar nuevo producto ...</button>
-        <br>
+
     </div>
 </div>
