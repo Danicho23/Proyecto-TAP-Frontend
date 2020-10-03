@@ -10,5 +10,10 @@
  * Do not edit the class manually.
  */
 
-export interface Proveedor { 
+export class Proveedor { 
+    calificacion?: string;
+    fechaEntrega?: string;
+    id?: string;
+    nombre?: string;
+    ruc?: string;
 }

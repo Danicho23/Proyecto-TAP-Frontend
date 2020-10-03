@@ -1,0 +1,38 @@
+<div>
+    <br>
+    <div [hidden]="submitted" style="width: 300px;" class="container card">
+        <h3 style="text-align: center;">Registrar Provedor</h3>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" id="id" required [(ngModel)]="proveedor.id" name="id">
+            </div>
+            <div class="form-group">
+                <label for="ruc">RUC</label>
+                <input type="text" class="form-control" id="ruc" required [(ngModel)]="proveedor.ruc" name="ruc">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required [(ngModel)]="proveedor.nombre" name="nombre">
+            </div>
+            <div class="form-group">
+                <label for="calificacion">Calificacion</label>
+                <textarea type="text" class="form-control" id="calificacion" required [(ngModel)]="proveedor.calificacion" name="calificacion"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="fechaEntrega">Fecha de entrega.</label>
+                <input type="datetime-local" class="form-control" id="fechaEntrega" required [(ngModel)]="proveedor.fechaEntrega" name="fechaEntrega">
+            </div>
+            <button type="submit" class="btn btn-success container">Guardar.</button>
+            <br><br>
+        </form>
+        <input type="button" class="btn btn-success container" value="Continuar proveedor ya existe.">
+
+    </div>
+</div>
+
+<div [hidden]="!submitted" class="container" style="text-align: center;">
+    <h4>Guardado correctamente!</h4>
+    <button class="btn btn-success" (click)="newProduct()">Agregar nuevo producto ...</button>
+    <br>
+</div>
