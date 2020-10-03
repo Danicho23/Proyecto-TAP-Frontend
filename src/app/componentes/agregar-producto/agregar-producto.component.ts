@@ -11,6 +11,7 @@ export class AgregarProductoComponent implements OnInit {
 
   producto: Productos = new Productos ();
   submitted = false;
+  url=null;
   constructor(private service: ProductoControllerService ) { }
 
   ngOnInit(): void {
@@ -31,4 +32,16 @@ export class AgregarProductoComponent implements OnInit {
     this.submitted = true;
     this.save();
   }
+  
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = (event:any) => {
+        this.url = event.target.result;
+      }
+
+      reader.readAsDataURL(event.target.files[0]);
+    }
+}
 }

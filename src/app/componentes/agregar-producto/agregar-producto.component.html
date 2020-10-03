@@ -15,6 +15,10 @@
             <label for="nombre">Precio</label>
             <input type="text" class="form-control" id="nombre" required [(ngModel)]="producto.precioProduct" name="nombre">
         </div>
+        <div>
+            <input type='file' (change)="readUrl($event)">
+            <img [src]="url">
+        </div>
         <button type="submit" class="btn btn-success container">Guardar</button>
         <br>
     </form>
