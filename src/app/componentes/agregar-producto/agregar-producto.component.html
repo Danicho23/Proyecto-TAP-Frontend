@@ -1,30 +1,31 @@
-<div [hidden]="submitted" style="width: 300px;" class="container card">
-    <h3 style="text-align: center;">Guardar Prodcuto</h3>
-    <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="catidadProduct">Cantidad</label>
-            <input type="text" class="form-control" id="catidadProduct" required [(ngModel)]="producto.catidadProduct" name="catidadProduct">
-        </div>
+<div>
+    <br>
+    <div [hidden]="submitted" style="width: 300px;" class="container card">
+        <h3 style="text-align: center;">Guardar Prodcuto</h3>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="catidadProduct">Cantidad</label>
+                <input type="text" class="form-control" id="catidadProduct" required [(ngModel)]="producto.catidadProduct" name="catidadProduct">
+            </div>
 
-        <div class="form-group">
-            <label for="descripProduct">Descripcion</label>
-            <input type="text" class="form-control" id="descripProduct" required [(ngModel)]="producto.descripProduct" name="descripProduct">
-        </div>
+            <div class="form-group">
+                <label for="descripProduct">Descripcion</label>
+                <textarea type="text" class="form-control" id="descripProduct" required [(ngModel)]="producto.descripProduct" name="descripProduct"></textarea>
+            </div>
 
-        <div class="form-group">
-            <label for="nombre">Precio</label>
-            <input type="text" class="form-control" id="nombre" required [(ngModel)]="producto.precioProduct" name="nombre">
-        </div>
-        <div>
-            <input type='file' (change)="readUrl($event)">
-            <img [src]="url">
-        </div>
-        <button type="submit" class="btn btn-success container">Guardar</button>
+            <div class="form-group">
+                <label for="nombre">Precio</label>
+                <input type="text" class="form-control" id="nombre" required [(ngModel)]="producto.precioProduct" name="nombre">
+            </div>
+            <button type="submit" class="btn btn-success container">Guardar</button>
+            <br>
+            <br>
+        </form>
+    </div>
+
+    <div [hidden]="!submitted" class="container" style="text-align: center;">
+        <h4>Guardado correctamente!</h4>
+        <button class="btn btn-success" (click)="newProduct()">Agregar nuevo producto ...</button>
         <br>
-    </form>
-</div>
-
-<div [hidden]="!submitted" class="container" style="text-align: center;">
-    <h4>Guardado correctamente!</h4>
-    <button class="btn btn-success" (click)="newProduct()">Agregar nuevo producto ...</button>
+    </div>
 </div>
