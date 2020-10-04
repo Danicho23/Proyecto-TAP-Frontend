@@ -6,23 +6,54 @@
         <hr>
         <form (ngSubmit)="onSubmit()">
             <div class="form-group">
+                <label for="idProductos">ID del prodcuto</label>
+                <input type="text" class="form-control" id="idProveidProductosedor" required [(ngModel)]="producto.idProductos" name="idProductos">
+            </div>
+            <div class="form-group">
+                <label for="nombreProducto">Nombre del producto</label>
+                <input type="text" class="form-control" id="nombreProducto" required [(ngModel)]="producto.nombreProducto" name="nombreProducto">
+            </div>
+            <div class="form-group">
                 <label for="catidadProduct">Cantidad</label>
                 <input type="text" class="form-control" id="catidadProduct" required [(ngModel)]="producto.catidadProduct" name="catidadProduct">
             </div>
             <div class="form-group">
-                <label for="inputState ">Provedor</label>
-                <select id="inputState " class="form-control ">
-                  <option *ngFor="let prove of proveedor">{{prove.nombre}}</option>
+                <label for="idProveedor ">Provedor</label>
+                <select id="idProveedor " class="form-control" required [(ngModel)]="producto.idProveedor" name="idProveedor">
+                    <option *ngFor="let prove of proveedor">{{prove.nombre}}</option>
                 </select>
             </div>
             <div class="form-group ">
                 <label for="descripProduct ">Descripcion</label>
                 <textarea type="text " class="form-control " id="descripProduct " required [(ngModel)]="producto.descripProduct " name="descripProduct "></textarea>
             </div>
+            <div>
+                <label for="Eliga la imagen del producto"></label>
+                <div class="container" style="text-align: center;">
+                    <br>
+                    <form>
+                        <input type="file" name="archivo" (change)="onChange($event)" accept=".jpg,.png,.jpeg,.jfif" />
+                        <h5 *ngIf="subiendo">Subiendo imagen...</h5>
+                        <br />
+                        <br />
+                        <button class="btn" (click)="onClickSubir($event)">Subir imagen</button>
+                    </form>
+                    <div class="" *ngIf="showImagen" style="width: 700px;" style="text-align: center;">
+                        <h4>Imagen subida ...</h4>
+                    </div>
 
-            <div class="form-group ">
-                <label for="nombre ">Precio</label>
-                <input type="text " class="form-control " id="nombre " required [(ngModel)]="producto.precioProduct " name="nombre ">
+                    <div class="error" *ngIf="error">
+                        <h1>Ha ocurrido un error</h1>
+                    </div>
+                </div>
+            </div>
+            <div><label for="precioProduct ">Precio</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">$</span>
+                    </div>
+                    <input type="text " class="form-control " id="precioProduct " required [(ngModel)]="producto.precioProduct " name="precioProduct">
+                </div>
             </div>
             <button type="submit " class="btn btn-success container ">Guardar</button>
             <br>
