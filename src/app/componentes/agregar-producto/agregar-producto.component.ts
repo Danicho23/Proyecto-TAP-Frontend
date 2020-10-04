@@ -9,39 +9,39 @@ import { Productos } from '../../model/productos';
 })
 export class AgregarProductoComponent implements OnInit {
 
-  producto: Productos = new Productos ();
+  producto: Productos = new Productos();
   submitted = false;
-  url=null;
-  constructor(private service: ProductoControllerService ) { }
+  url = null;
+  constructor(private service: ProductoControllerService) { }
 
   ngOnInit(): void {
   }
 
   newProduct(): void {
     this.submitted = false;
-    this.producto = new Productos ();
+    this.producto = new Productos();
   }
   save() {
     this.service.saveProductosUsingPOST(this.producto)
       .subscribe(data => console.log(data), error => console.log(error));
     this.producto = new Productos();
-  
+
   }
- 
+
   onSubmit() {
     this.submitted = true;
     this.save();
   }
-  
-  readUrl(event:any) {
+
+  readUrl(event: any) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
 
-      reader.onload = (event:any) => {
+      reader.onload = (event: any) => {
         this.url = event.target.result;
       }
 
       reader.readAsDataURL(event.target.files[0]);
     }
-}
+  }
 }

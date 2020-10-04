@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output ,EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Usuario} from 'src/app/model/usuario';
 import {UsuarioControllerService} from 'src/app/api/usuarioController.service';
@@ -10,14 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  user: Usuario = new Usuario();
-  //user: Usuario = {
-    //id: null,
-    //idPersona: null,
-    //password: null,
-    //userName: null,
-    //userType: null
-  //}
+  //user: Usuario = new Usuario();
+  //user2: Usuario = {id: ''};
+  user: Usuario = {
+    id: null,
+    idPersona: null,
+    password: null,
+    userName: null,
+    userType: null
+  };
   msg='';
 
   constructor(private serviceUser: UsuarioControllerService, private router: Router) { }
@@ -38,6 +39,6 @@ export class HomeComponent implements OnInit {
         this.msg="credenciales incorrectos";
       }
     );
-    this.user = new Usuario();
+    //this.user = new Usuario();
   }
 }
