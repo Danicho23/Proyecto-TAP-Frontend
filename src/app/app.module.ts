@@ -12,7 +12,6 @@ import { ListallproductComponent} from './componentes/listallproduct/listallprod
 import { FormsModule } from '@angular/forms';
 import { PersonaControllerService } from '.';
 import { UsuarioControllerService} from '.';
-import { from } from 'rxjs';
 import { ProductoControllerService } from './api/api';
 import { AgregarProductoComponent } from './componentes/agregar-producto/agregar-producto.component';
 import {TarjetalistallComponent} from './componentes/tarjetalistall/tarjetalistall.component';

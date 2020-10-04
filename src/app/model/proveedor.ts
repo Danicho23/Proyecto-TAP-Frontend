@@ -11,7 +11,6 @@
  */
 
 export class Proveedor { 
-    calificacion?: string;
     fechaEntrega?: string;
     id?: string;
     nombre?: string;
