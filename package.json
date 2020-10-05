@@ -22,6 +22,7 @@
     "@angular/router": "~9.0.2",
     "aws-sdk": "^2.766.0",
     "bootstrap": "^4.5.2",
+    "bootstrap-icons": "^1.0.0",
     "filepond": "^4.20.1",
     "filepond-plugin-file-encode": "^2.1.9",
     "filepond-plugin-image-preview": "^4.6.4",
