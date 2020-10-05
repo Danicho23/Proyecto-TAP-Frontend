@@ -17,6 +17,7 @@ import { AgregarProductoComponent } from './componentes/agregar-producto/agregar
 import {TarjetalistallComponent} from './componentes/tarjetalistall/tarjetalistall.component';
 import { IngresarProvedorComponent } from './componentes/ingresar-provedor/ingresar-provedor.component';
 import { ProvedorControllerService } from './api/provedorController.service';
+import { RegistrarUserComponent } from './componentes/registrar-user/registrar-user.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProvedorControllerService } from './api/provedorController.service';
     ListallproductComponent,
     AgregarProductoComponent,
     TarjetalistallComponent,
-    IngresarProvedorComponent
+    IngresarProvedorComponent,
+    RegistrarUserComponent
   ],
   imports: [
     BrowserModule,
