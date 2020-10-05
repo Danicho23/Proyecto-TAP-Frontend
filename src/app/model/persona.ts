@@ -14,6 +14,6 @@ export class Persona {
     apellido?: string;
     cedula?: string;
     email?: string;
-    idPersona?: string;
     telefono?: string;
+    nombre?: string;
 }

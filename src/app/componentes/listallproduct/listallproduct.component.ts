@@ -9,10 +9,23 @@ import { Productos } from '../../model/productos';
 })
 export class ListallproductComponent implements OnInit {
   productos: Productos[];
-
+  nombre: string;
   constructor(private service: ProductoControllerService) { }
 
   ngOnInit(): void {
+    this.listarProductos();
+    this.nombre = '';
+  }
+  private searchPublicacion() {
+    this.service.buscarProductsPorNombreUsingGET(this.nombre)
+      .subscribe(productos => this.productos = productos);
+  }
+
+  onSubmit() {
+    this.searchPublicacion();
+  }
+
+  listarProductos() {
     this.service.listarProductosUsingGET()
       .subscribe(data => {
         this.productos = data;

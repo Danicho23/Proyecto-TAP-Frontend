@@ -41,4 +41,8 @@ export class HomeComponent implements OnInit {
     );
     //this.user = new Usuario();
   }
+
+  abrir(){
+  this.router.navigate(['registrarUser']);
+  }
 }
