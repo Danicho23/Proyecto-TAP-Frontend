@@ -32,8 +32,8 @@ export class AgregarProductoComponent implements OnInit {
   constructor(private service: ProductoControllerService, private serviceProveedor: ProvedorControllerService, private router: Router) {
     AWS.config.region = 'us-east-1'; // Región
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: 'us-east-1:e53ce7d1-41a5-4c4a-8d9e-8f9ccc70ee69',
-    })
+      IdentityPoolId: 'us-east-1:1e78ec2b-1fa0-45a9-92a2-54fc5567a162',
+    });
   }
 
   ngOnInit(): void {
