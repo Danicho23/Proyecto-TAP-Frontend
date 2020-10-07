@@ -1,0 +1,9 @@
+
+img.media{
+    width: 450px;height: 400px;
+}
+
+img.centrarImg{
+    display: block;
+    margin: auto;
+}

@@ -1,6 +1,6 @@
 <div>
     <br>
-    <div [hidden]="submitted" style="width: 300px;" class="container card">
+    <div [hidden]="submitted" style="width: 500px;" class="container card">
         <br>
         <h3 style="text-align: center;">Nuevo Prodcuto</h3>
         <hr>
@@ -40,11 +40,13 @@
                 <div class="container" style="text-align: center;">
                     <br>
                     <form>
-                        <input type="file" name="archivo" (change)="onChange($event)" accept=".jpg,.png,.jpeg,.jfif" />
+                        <input type="file" name="archivo" (change)="readUrl($event)" accept=".jpg,.png,.jpeg,.jfif" />
                         <h5 *ngIf="subiendo">Subiendo imagen...</h5>
                         <br />
                         <br />
                         <button class="btn" (click)="onClickSubir($event)">Subir imagen</button>
+                        <br>
+                        <img class="media entrarImg" [src]="url">
                     </form>
                     <div class="" *ngIf="showImagen" style="width: 700px;" style="text-align: center;">
                         <h4>Imagen subida ...</h4>
@@ -55,6 +57,8 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <br>
             <button type="submit " class="btn btn-success container ">Guardar</button>
             <br>
             <br>
