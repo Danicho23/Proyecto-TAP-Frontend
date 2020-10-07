@@ -1,6 +1,6 @@
 <div>
     <br>
-    <div [hidden]="submitted" style="width: 300px;" class="container card">
+    <div [hidden]="submitted" style="width: 600px;" class="container card">
         <br>
         <h3 style="text-align: center;">Nuevo Prodcuto</h3>
         <hr>
@@ -42,7 +42,7 @@
 
                     <form>
                         <input type="file" (change)="onChange($event)" class="d-one form-group" #photoInput />
-
+                        <br>
                         <img [src]="photoSelected || '../../../assets/imagen/noImage.png'" (click)="photoInput.click()" class="img-fluid form-group" />
                         <button class="btn btn-warning" (click)="onClickSubir($event)">Subir imagen</button>
                     </form>
