@@ -5,13 +5,22 @@ import { ProvedorControllerService } from '../../api/provedorController.service'
 import { Proveedor } from '../../model/proveedor';
 import { Router } from '@angular/router';
 import * as AWS from 'aws-sdk';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-agregar-producto',
   templateUrl: './agregar-producto.component.html',
   styleUrls: ['./agregar-producto.component.css']
 })
 export class AgregarProductoComponent implements OnInit {
+  constructor(private service: ProductoControllerService, private serviceProveedor: ProvedorControllerService, private router: Router) {
+    AWS.config.region = 'us-east-1'; // Región
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+      IdentityPoolId: 'us-east-1:1e78ec2b-1fa0-45a9-92a2-54fc5567a162',
+    });
+  }
+  file: File;
   // variables S3;
+
   showImagen = false;
   error = false;
   subiendo = false;
@@ -29,13 +38,8 @@ export class AgregarProductoComponent implements OnInit {
     apiVersion: '2006-03-01',
     params: { Bucket: 'imagenestienda' },
   });
-  constructor(private service: ProductoControllerService, private serviceProveedor: ProvedorControllerService, private router: Router) {
-    AWS.config.region = 'us-east-1'; // Región
-    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: 'us-east-1:1e78ec2b-1fa0-45a9-92a2-54fc5567a162',
-    });
-  }
-
+  photoSelected : string | ArrayBuffer;
+  uploadPercent: Observable<number>;
   ngOnInit(): void {
     this.serviceProveedor.listarProvedorUsingGET()
       .subscribe(data => {
@@ -76,7 +80,6 @@ export class AgregarProductoComponent implements OnInit {
   }
   onClickSubir = async (event) => {
     event.preventDefault();
-
     if (this.archivo) {
       try {
         this.subiendo = true;
@@ -100,12 +103,15 @@ export class AgregarProductoComponent implements OnInit {
         }, 2000);
       }
     } else {
-      alert('SELECCIONE UN ARCHIVO');
+      alert('Seleccione una imagen del producto !!!');
     }
   };
   onChange = (event) => {
     if (event.target.files.length > 0) {
       this.archivo = event.target.files[0];
+      const reader = new FileReader();
+        reader.onload = e => this.photoSelected =reader.result;
+        reader.readAsDataURL(this.archivo);
     }
   };
 

@@ -1,6 +1,6 @@
 <div>
     <br>
-    <div [hidden]="submitted" style="width: 500px;" class="container card">
+    <div [hidden]="submitted" style="width: 300px;" class="container card">
         <br>
         <h3 style="text-align: center;">Nuevo Prodcuto</h3>
         <hr>
@@ -36,31 +36,36 @@
                 </div>
             </div>
             <div>
+                <hr>
                 <label for="Eliga la imagen del producto"></label>
                 <div class="container" style="text-align: center;">
-                    <br>
+
                     <form>
-                        <input type="file" name="archivo" (change)="readUrl($event)" accept=".jpg,.png,.jpeg,.jfif" />
-                        <h5 *ngIf="subiendo">Subiendo imagen...</h5>
-                        <br />
-                        <br />
-                        <button class="btn" (click)="onClickSubir($event)">Subir imagen</button>
-                        <br>
-                        <img class="media entrarImg" [src]="url">
+                        <input type="file" (change)="onChange($event)" class="d-one form-group" #photoInput />
+
+                        <img [src]="photoSelected || '../../../assets/imagen/noImage.png'" (click)="photoInput.click()" class="img-fluid form-group" />
+                        <button class="btn btn-warning" (click)="onClickSubir($event)">Subir imagen</button>
                     </form>
-                    <div class="" *ngIf="showImagen" style="width: 700px;" style="text-align: center;">
-                        <h4>Imagen subida ...</h4>
+                    <div class="form-group" *ngIf="showImagen" style="width: 700px;" style="text-align: center;">
+                        <h5>Imagen subida ...</h5>
+                    </div>
+                    <div class="progress form-group" *ngIf="subiendo">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadPercent | async) +'%'" aria-valuemax="100">
+                        </div>
                     </div>
 
                     <div class="error" *ngIf="error">
-                        <h1>Ha ocurrido un error</h1>
+                        <h5>Ha ocurrido un error</h5>
                     </div>
                 </div>
+                <hr>
             </div>
-            <br>
-            <br>
-            <button type="submit " class="btn btn-success container ">Guardar</button>
-            <br>
+            <div class="form-group">
+                <label for="imagen">Imagen URl</label>
+                <input type="text" class="form-control" id="imagen" required [(ngModel)]="producto.imagen" name="imagen" value="{{urlImagen}}">
+            </div>
+            <hr>
+            <button type="submit " class="btn btn-success container form-group">Guardar</button>
             <br>
         </form>
     </div>
