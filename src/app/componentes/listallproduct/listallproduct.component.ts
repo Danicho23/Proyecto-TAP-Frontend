@@ -17,7 +17,7 @@ export class ListallproductComponent implements OnInit {
     this.nombre = '';
   }
   private searchPublicacion() {
-    this.service.buscarProductsPorNombreUsingGET(this.nombre)
+    this.service.findByQueryUsingGET(this.nombre)
       .subscribe(productos => this.productos = productos);
   }
 
@@ -29,8 +29,10 @@ export class ListallproductComponent implements OnInit {
     this.service.listarProductosUsingGET()
       .subscribe(data => {
         this.productos = data;
+        console.log(this.productos);
       }
       );
+      
   }
 
   //buscarPubicacion(){
