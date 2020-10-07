@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-export interface Usuario { 
+export class Usuario { 
     id?: string;
     idPersona?: string;
     password?: string;
