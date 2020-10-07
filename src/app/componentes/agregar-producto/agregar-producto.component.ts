@@ -40,6 +40,7 @@ export class AgregarProductoComponent implements OnInit {
   });
   photoSelected : string | ArrayBuffer;
   uploadPercent: Observable<number>;
+
   ngOnInit(): void {
     this.serviceProveedor.listarProvedorUsingGET()
       .subscribe(data => {
@@ -55,12 +56,17 @@ export class AgregarProductoComponent implements OnInit {
   save() {
     this.service.saveProductosUsingPOST(this.producto)
       .subscribe(data => console.log(data), error => console.log(error));
+      console.log(this.producto);
     this.producto = new Productos();
+    
 
   }
 
   onSubmit() {
     this.submitted = true;
+    console.log(this.producto),
+    this.producto.imagen=this.urlImagen;
+    console.log(this.producto.imagen);
     this.save();
   }
   abrir() {

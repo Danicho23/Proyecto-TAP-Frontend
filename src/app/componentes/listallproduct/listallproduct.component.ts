@@ -29,8 +29,10 @@ export class ListallproductComponent implements OnInit {
     this.service.listarProductosUsingGET()
       .subscribe(data => {
         this.productos = data;
+        console.log(this.productos);
       }
       );
+      
   }
 
   //buscarPubicacion(){
