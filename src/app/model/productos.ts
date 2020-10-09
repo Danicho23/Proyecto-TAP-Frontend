@@ -13,8 +13,8 @@
 export class Productos { 
     catidadProduct?: string;
     descripProduct?: string;
-    idProductos?: string;
-    idProveedor?: string;
+    idProductos?: string; //
+    idProveedor?: string; //
     imagen?: string;
     nombreProducto?: string;
     precioProduct?: number;

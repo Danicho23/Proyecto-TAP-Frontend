@@ -18,6 +18,8 @@ import {TarjetalistallComponent} from './componentes/tarjetalistall/tarjetalista
 import { IngresarProvedorComponent } from './componentes/ingresar-provedor/ingresar-provedor.component';
 import { ProvedorControllerService } from './api/provedorController.service';
 import { RegistrarUserComponent } from './componentes/registrar-user/registrar-user.component';
+import { ListaControlProductosComponent } from './componentes/lista-control-productos/lista-control-productos.component';
+import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { RegistrarUserComponent } from './componentes/registrar-user/registrar-u
     AgregarProductoComponent,
     TarjetalistallComponent,
     IngresarProvedorComponent,
-    RegistrarUserComponent
+    RegistrarUserComponent,
+    ListaControlProductosComponent,
+    EditarProductoComponent
   ],
   imports: [
     BrowserModule,
