@@ -33,11 +33,12 @@ export class ListaControlProductosComponent implements OnInit {
           console.log(data);
         },
         error => console.log(error));
+    this.listarProductos();
   }
 
- Editar(productos):void{
-  localStorage.setItem("idProductos", productos.idProductos.toString());
-  this.router.navigate(['editarProducto']);
- }
+  Editar(productos): void {
+    localStorage.setItem("idProductos", productos.idProductos.toString());
+    this.router.navigate(['editarProducto']);
+  }
 
 }

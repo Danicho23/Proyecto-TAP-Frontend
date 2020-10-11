@@ -20,6 +20,11 @@ import { ProvedorControllerService } from './api/provedorController.service';
 import { RegistrarUserComponent } from './componentes/registrar-user/registrar-user.component';
 import { ListaControlProductosComponent } from './componentes/lista-control-productos/lista-control-productos.component';
 import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
+import { TecnologiaComponent } from './componentes/tecnologia/tecnologia.component';
+import { HogarComponent } from './componentes/hogar/hogar.component';
+import { ElectrodomesticosComponent } from './componentes/electrodomesticos/electrodomesticos.component';
+import { OtrosProdcutosComponent } from './componentes/otros-prodcutos/otros-prodcutos.component';
+import { ComidaComponent } from './componentes/comida/comida.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { EditarProductoComponent } from './componentes/editar-producto/editar-pr
     IngresarProvedorComponent,
     RegistrarUserComponent,
     ListaControlProductosComponent,
-    EditarProductoComponent
+    EditarProductoComponent,
+    TecnologiaComponent,
+    HogarComponent,
+    ElectrodomesticosComponent,
+    OtrosProdcutosComponent,
+    ComidaComponent
   ],
   imports: [
     BrowserModule,

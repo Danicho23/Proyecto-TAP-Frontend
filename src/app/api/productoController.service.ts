@@ -195,6 +195,50 @@ export class ProductoControllerService {
     }
 
     /**
+     * findByCategoria
+     * 
+     * @param categoria categoria
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public findByCategoriaUsingGET(categoria?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Productos>>;
+    public findByCategoriaUsingGET(categoria?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Productos>>>;
+    public findByCategoriaUsingGET(categoria?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Productos>>>;
+    public findByCategoriaUsingGET(categoria?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (categoria !== undefined && categoria !== null) {
+            queryParameters = queryParameters.set('categoria', <any>categoria);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<Array<Productos>>('get',`${this.basePath}/productos/categoria/${encodeURIComponent(String(categoria))}`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * findByQuery
      * 
      * @param nombreProducto nombreProducto

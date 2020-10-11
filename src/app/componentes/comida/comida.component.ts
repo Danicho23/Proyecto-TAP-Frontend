@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoControllerService } from '../../api/productoController.service';
 import { Productos } from '../../model/productos';
 @Component({
-  selector: 'app-electrodomesticos',
-  templateUrl: './electrodomesticos.component.html',
-  styleUrls: ['./electrodomesticos.component.css']
+  selector: 'app-comida',
+  templateUrl: './comida.component.html',
+  styleUrls: ['./comida.component.css']
 })
-export class ElectrodomesticosComponent implements OnInit {
+export class ComidaComponent implements OnInit {
   productos: Productos[];
   constructor(private service: ProductoControllerService) { }
 
@@ -15,7 +15,7 @@ export class ElectrodomesticosComponent implements OnInit {
   }
 
   listarProductos() {
-    this.service.findByCategoriaUsingGET('Electrodomesticos')
+    this.service.findByCategoriaUsingGET('Comida')
       .subscribe(data => {
         this.productos = data;
         console.log( 'categoria', this.productos);

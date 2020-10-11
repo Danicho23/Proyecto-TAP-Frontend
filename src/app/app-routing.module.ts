@@ -10,6 +10,8 @@ import { IngresarProvedorComponent } from './componentes/ingresar-provedor/ingre
 import { RegistrarUserComponent } from './componentes/registrar-user/registrar-user.component';
 import { ListaControlProductosComponent } from './componentes/lista-control-productos/lista-control-productos.component';
 import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
+import { ComidaComponent } from './componentes/comida/comida.component';
+import { OtrosProdcutosComponent } from './componentes/otros-prodcutos/otros-prodcutos.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'registrarUser', component: RegistrarUserComponent},
   { path: 'controlProductos', component: ListaControlProductosComponent},
   { path: 'editarProducto', component: EditarProductoComponent},
+  { path: 'comida', component: ComidaComponent},
+  { path: 'otros', component: OtrosProdcutosComponent},
   { path: 'all', component: ListallproductComponent },
   { path: '', component: ListallproductComponent,pathMatch:'full' },
   { path: '**', redirectTo: '/',pathMatch:'full' }

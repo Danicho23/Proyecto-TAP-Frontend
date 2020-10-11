@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-export class OptionalProductos { 
+export interface OptionalProductos { 
     empty?: boolean;
     present?: boolean;
 }
