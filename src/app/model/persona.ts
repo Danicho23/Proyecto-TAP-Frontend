@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-export class Persona { 
+export interface Persona { 
     apellido?: string;
     cedula?: string;
     email?: string;

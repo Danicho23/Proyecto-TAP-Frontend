@@ -142,6 +142,58 @@ export class ProductoControllerService {
     }
 
     /**
+     * editarProdcuto
+     * 
+     * @param body product
+     * @param idProductos idProductos
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public editarProdcutoUsingPUT(body: Productos, idProductos: string, observe?: 'body', reportProgress?: boolean): Observable<Productos>;
+    public editarProdcutoUsingPUT(body: Productos, idProductos: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Productos>>;
+    public editarProdcutoUsingPUT(body: Productos, idProductos: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Productos>>;
+    public editarProdcutoUsingPUT(body: Productos, idProductos: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling editarProdcutoUsingPUT.');
+        }
+
+        if (idProductos === null || idProductos === undefined) {
+            throw new Error('Required parameter idProductos was null or undefined when calling editarProdcutoUsingPUT.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            '*/*'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.request<Productos>('put',`${this.basePath}/productos/editarProducto/${encodeURIComponent(String(id))}`,
+            {
+                body: body,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * findByQuery
      * 
      * @param nombreProducto nombreProducto

@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-export class Productos { 
+export interface Productos { 
     catidadProduct?: string;
     descripProduct?: string;
-    idProductos?: string; //
-    idProveedor?: string; //
+    idProductos?: string;
+    idProveedor?: string;
     imagen?: string;
     nombreProducto?: string;
     precioProduct?: number;

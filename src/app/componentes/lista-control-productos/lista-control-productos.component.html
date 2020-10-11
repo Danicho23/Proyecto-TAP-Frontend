@@ -27,8 +27,31 @@
                 <td>{{produc.catidadProduct}}</td>
                 <td>{{produc.imagen}}</td>
                 <td><button (click)="deleteProduct(produc.idProductos)" class="btn btn-danger">Delete</button></td>
-                <td><button (click)="abrirEditarPro()" class="btn btn-warning">Details</button></td>
+                <td>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#ventanaModal">Editar</button></td>
             </tr>
         </tbody>
     </table>
+</div>
+<!--Prueba del ediar-->
+<div class=" modal fade " id="ventanaModal " tabindex="-1 " role="dialog " aria-labelledby="tituloVentana " aria-hidden="true">
+    <div class="modal-dialog " role="document ">
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <h4 id="tituloVentana ">Editar prodcuto.</h4>
+                <button class="close " data-dismiss="modal " aria-label="Cerrar ">
+                    <span aria-hidden="true ">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body ">
+                <div class="alert alert-success ">
+                    <h5> <strong>formulario</strong> </h5>
+                </div>
+            </div>
+            <div class="modal-footer ">
+                <button class="btn btn-warning " type="button " data-dismiss="modal ">Cancelar</button>
+                <button class="btn btn-success " type="button ">Guardar</button>
+            </div>
+        </div>
+    </div>
 </div>

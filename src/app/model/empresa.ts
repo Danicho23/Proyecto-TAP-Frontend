@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-export class Empresa { 
+export interface Empresa { 
     calificacion?: number;
     fecha?: string;
     id?: string;

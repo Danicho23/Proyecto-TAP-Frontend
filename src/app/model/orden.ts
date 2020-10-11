@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-export class Orden { 
+export interface Orden { 
     id?: string;
     idProductos?: string;
     idPersona?: string;
