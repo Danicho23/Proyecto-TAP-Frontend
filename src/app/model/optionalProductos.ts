@@ -10,8 +10,7 @@
  * Do not edit the class manually.
  */
 
-export class Categoria { 
-    id?: string;
-    idProductos?: string;
-    nombreCategoria?: string;
+export class OptionalProductos { 
+    empty?: boolean;
+    present?: boolean;
 }

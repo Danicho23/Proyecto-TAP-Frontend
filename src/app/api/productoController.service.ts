@@ -17,6 +17,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
+import { OptionalProductos } from '../model/optionalProductos';
 import { Productos } from '../model/productos';
 import { ResponseEntity } from '../model/responseEntity';
 
@@ -59,19 +60,19 @@ export class ProductoControllerService {
     /**
      * buscarProductsPorNombre
      * 
-     * @param name name
+     * @param id id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public buscarProductsPorNombreUsingGET(name?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Productos>>;
-    public buscarProductsPorNombreUsingGET(name?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Productos>>>;
-    public buscarProductsPorNombreUsingGET(name?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Productos>>>;
-    public buscarProductsPorNombreUsingGET(name?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public buscarProductsPorNombreUsingGET(id?: string, observe?: 'body', reportProgress?: boolean): Observable<OptionalProductos>;
+    public buscarProductsPorNombreUsingGET(id?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<OptionalProductos>>;
+    public buscarProductsPorNombreUsingGET(id?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<OptionalProductos>>;
+    public buscarProductsPorNombreUsingGET(id?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (name !== undefined && name !== null) {
-            queryParameters = queryParameters.set('name', <any>name);
+        if (id !== undefined && id !== null) {
+            queryParameters = queryParameters.set('id', <any>id);
         }
 
         let headers = this.defaultHeaders;
@@ -89,7 +90,7 @@ export class ProductoControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<Array<Productos>>('get',`${this.basePath}/productos/buscar/${encodeURIComponent(String(name))}`,
+        return this.httpClient.request<OptionalProductos>('get',`${this.basePath}/productos/buscar/${encodeURIComponent(String(id))}`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -182,7 +183,7 @@ export class ProductoControllerService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.request<Productos>('put',`${this.basePath}/productos/editarProducto/${encodeURIComponent(String(id))}`,
+        return this.httpClient.request<Productos>('put',`${this.basePath}/productos/editarProducto/${encodeURIComponent(String(idProductos))}`,
             {
                 body: body,
                 withCredentials: this.configuration.withCredentials,

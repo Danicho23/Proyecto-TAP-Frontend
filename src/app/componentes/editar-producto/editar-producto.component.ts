@@ -6,6 +6,7 @@ import { Proveedor } from '../../model/proveedor';
 import { Router } from '@angular/router';
 import * as AWS from 'aws-sdk';
 import { Observable } from 'rxjs';
+import { TestServiService } from '../../Service/test-servi.service';
 @Component({
   selector: 'app-editar-producto',
   templateUrl: './editar-producto.component.html',
@@ -13,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class EditarProductoComponent implements OnInit {
 
-  constructor(private service: ProductoControllerService, private serviceProveedor: ProvedorControllerService, private router: Router) {
+  constructor(private service: ProductoControllerService, private serviceProveedor: ProvedorControllerService, private router: Router, private serviceTest: TestServiService) {
     AWS.config.region = 'us-east-1'; // Región
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
       IdentityPoolId: 'us-east-1:1e78ec2b-1fa0-45a9-92a2-54fc5567a162',
@@ -30,6 +31,7 @@ export class EditarProductoComponent implements OnInit {
   urlImagen = null;
   // variables
   producto: Productos = new Productos();
+  productos: Productos [];
   proveedor: Proveedor [];
   submitted = false;
   url = null;
@@ -122,5 +124,11 @@ export class EditarProductoComponent implements OnInit {
         reader.readAsDataURL(this.archivo);
     }
   };
-
+ Editar() {
+   let idProductos = localStorage.getItem("idProductos");
+   this.serviceTest.getProductId(idProductos)
+   .subscribe(data=>{
+     this.producto=data;
+   });
+ }
 }

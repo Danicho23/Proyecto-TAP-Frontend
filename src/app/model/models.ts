@@ -1,6 +1,7 @@
 export * from './categoria';
 export * from './empresa';
 export * from './modelAndView';
+export * from './optionalProductos';
 export * from './orden';
 export * from './persona';
 export * from './productos';

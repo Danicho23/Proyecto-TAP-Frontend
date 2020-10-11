@@ -1,0 +1,85 @@
+<div>
+    <br>
+    <div [hidden]="submitted" style="width: 600px;" class="container card">
+        <br>
+        <h3 style="text-align: center;">Nuevo Prodcuto</h3>
+        <hr>
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="form-group col">
+                    <label for="idProductos">ID del prodcuto</label>
+                    <input type="text" class="form-control" id="idProveidProductosedor" required [(ngModel)]="producto.idProductos" name="idProductos">
+                </div>
+                <div class="form-group col">
+                    <label for="nombreProducto">Nombre del producto</label>
+                    <input type="text" class="form-control" id="nombreProducto" required [(ngModel)]="producto.nombreProducto" name="nombreProducto">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="catidadProduct">Cantidad</label>
+                    <input type="text" class="form-control" id="catidadProduct" required [(ngModel)]="producto.catidadProduct" name="catidadProduct">
+                </div>
+                <div class="form-group col">
+                    <label for="idProveedor ">Provedor</label>
+                    <select id="idProveedor " class="form-control" required [(ngModel)]="producto.idProveedor" name="idProveedor">
+                        <option *ngFor="let prove of proveedor" [ngValue]="prove.nombre">{{prove.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="descripProduct ">Descripcion</label>
+                <textarea type="text " class="form-control " id="descripProduct " required [(ngModel)]="producto.descripProduct " name="descripProduct "></textarea>
+            </div>
+            <div class="row">
+                <div><label for="precioProduct ">Precio</label>
+                    <div class="input-group mb-3 col">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text " class="form-control " id="precioProduct " required [(ngModel)]="producto.precioProduct " name="precioProduct">
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group col">
+                        <label for="imagen">Imagen URl</label>
+                        <input type="text" class="form-control" id="imagen" required [(ngModel)]="producto.imagen" name="imagen" value="{{urlImagen}}">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <label for="Eliga la imagen del producto"></label>
+            <div class="container" style="text-align: center;">
+
+                <form>
+                    <input type="file" (change)="onChange($event)" class="d-one form-group" #photoInput />
+                    <br>
+                    <img [src]="photoSelected || '../../../assets/imagen/noImage.png'" (click)="photoInput.click()" class="img-fluid form-group" />
+                </form>
+                <button class="btn btn-warning" (click)="onClickSubir($event)">Subir imagen</button>
+                <div class="form-group" *ngIf="showImagen" style="width: 700px;" style="text-align: center;">
+                    <h5>Imagen subida ...</h5>
+                </div>
+                <div class="progress form-group" *ngIf="subiendo">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadPercent | async) +'%'" aria-valuemax="100">
+                    </div>
+                </div>
+
+                <div class="error" *ngIf="error">
+                    <h5>Ha ocurrido un error</h5>
+                </div>
+            </div>
+            <hr>
+
+            <hr>
+            <button type="submit" class="btn btn-success container form-group">Guardar</button>
+            <br>
+        </form>
+    </div>
+
+    <div [hidden]="!submitted " class="container " style="text-align: center; ">
+        <h4>Guardado correctamente!</h4>
+        <button class="btn btn-success " (click)="newProduct() ">Agregar nuevo producto ...</button>
+
+    </div>
+</div>
