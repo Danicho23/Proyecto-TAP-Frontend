@@ -1,66 +1,73 @@
 <!-- hecho por Daniel Brito-->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
+<img src="../../../assets/imagen/productos.jpg" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.60;">
+<div>
 
-    <div class="carousel-inner d-block" style="width: 400px; height: 400px;" style="text-align: center;">
-        <div *ngFor="let produt of productos">
-            <div class="carousel-item active">
-                <img src="{{produt.imagen}}" alt="...">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner d-block" style="width: 400px; height: 400px;" style="text-align: center;">
+            <div *ngFor="let produt of productos">
+                <div class="carousel-item active">
+                    <img src="{{produt.imagen}}" alt="...">
+                </div>
+
             </div>
-
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-
-</div>
 
 
-<div class="form-group">
-    <hr>
-    <h3 style="text-align: center;">Lista de productos</h3>
-    <hr>
-    <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit()">
-        <input class="form-control mr-sm-2" type="search" placeholder="Ingrese el nombre del producto" aria-label="Search" #buscartexto id="nombre" required [(ngModel)]="nombre" name="nombre">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar producto...</button>
-        <button type="button" class="btn btn-warning ml-3" (click)=listarProductos()><svg width="1em" height="1em"
-        viewBox="0 0 16 16" class="bi bi-arrow-counterclockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
-        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
-      </svg></button>
-    </form>
-    <hr>
-    <div class="row row-cols-1 row-cols-md-3 ">
-        <div class="col-sm-6" *ngFor="let product of productos">
-            <div class="card border-info mb-3" style="max-width: 18rem;">
-                <img src="{{product.imagen}}" class="card-img-top " alt="... ">
-                <hr>
-                <div class="card-body ">
-                    <ul class="list-group list-group-flush ">
-                        <h5 class="card-title ">Nombre:</h5>
-                        <p class="card-text " style="text-align: center; ">{{product.nombreProducto}}</p>
-                        <li class="card-subtitle list-group-item list-group-item-info " style="text-align: center; ">Descripcion:
-                        </li>
-                        <p class="card-text " style="text-align: center; ">{{product.descripProduct}}</p>
+    <div class="form-group">
+        <hr>
+        <h3 style="text-align: center;">Lista de productos</h3>
+        <hr>
+        <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit()">
+            <input class="form-control mr-sm-2" type="search" placeholder="Ingrese el nombre del producto" aria-label="Search" #buscartexto id="nombre" required [(ngModel)]="nombre" name="nombre">
+            <button class="btn btn-success my-2 my-sm-0" type="submit">Buscar producto...</button>
+            <button type="button" class="btn btn-warning ml-3" (click)=listarProductos()><svg width="1em" height="1em"
+                    viewBox="0 0 16 16" class="bi bi-arrow-counterclockwise" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                    <path
+                        d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+                </svg></button>
+        </form>
+        <hr>
+        <div class="row row-cols-1 row-cols-md-3 ">
+            <div class="col-sm-6" *ngFor="let product of productos">
+                <div class="card border-info mb-3" style="max-width: 18rem;">
+                    <img src="{{product.imagen}}" class="card-img-top " alt="... ">
+                    <hr>
+                    <div class="card-body ">
+                        <ul class="list-group list-group-flush ">
+                            <h5 class="card-title ">Nombre:</h5>
+                            <p class="card-text " style="text-align: center; ">{{product.nombreProducto}}</p>
+                            <li class="card-subtitle list-group-item list-group-item-info " style="text-align: center; ">Descripcion:
+                            </li>
+                            <p class="card-text " style="text-align: center; ">{{product.descripProduct}}</p>
 
-                        <li class="card-subtitle list-group-item list-group-item-info " style="text-align: center; ">Precio:</li>
-                        <p class="card-text " style="text-align: center; ">{{product.precioProduct}}</p>
+                            <li class="card-subtitle list-group-item list-group-item-info " style="text-align: center; ">Precio:</li>
+                            <p class="card-text " style="text-align: center; ">{{product.precioProduct}}</p>
 
-                        <li class="card-subtitle list-group-item list-group-item-info " style="text-align: center; ">Marca:</li>
-                        <p class="card-text " style="text-align: center; ">{{product.idProveedor}}</p>
-                    </ul>
+                            <li class="card-subtitle list-group-item list-group-item-info " style="text-align: center; ">Marca:</li>
+                            <p class="card-text " style="text-align: center; ">{{product.idProveedor}}</p>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
