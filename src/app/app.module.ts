@@ -25,6 +25,8 @@ import { HogarComponent } from './componentes/hogar/hogar.component';
 import { ElectrodomesticosComponent } from './componentes/electrodomesticos/electrodomesticos.component';
 import { OtrosProdcutosComponent } from './componentes/otros-prodcutos/otros-prodcutos.component';
 import { ComidaComponent } from './componentes/comida/comida.component';
+import { HerramientasComponent } from './componentes/herramientas/herramientas.component';
+import { VestimentaComponent } from './componentes/vestimenta/vestimenta.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { ComidaComponent } from './componentes/comida/comida.component';
     HogarComponent,
     ElectrodomesticosComponent,
     OtrosProdcutosComponent,
-    ComidaComponent
+    ComidaComponent,
+    HerramientasComponent,
+    VestimentaComponent
   ],
   imports: [
     BrowserModule,

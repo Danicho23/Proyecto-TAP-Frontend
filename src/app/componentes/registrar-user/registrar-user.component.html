@@ -4,9 +4,13 @@
     <div>
         <br>
         <div [hidden]="submitted" style="width: 300px;" class="container card">
+            <hr>
             <h3 style="text-align: center;">Bienvenido</h3>
             <hr>
-            <h6 style="text-align: center;"> Registrate ya !!!</h6>
+            <h6 style="text-align: center; color: sandybrown;"> Registrate ya !!!</h6>
+            <div style="text-align: center;">
+                <img src="../../../assets/imagen/newUser.png" class="img-fluid form-group" />
+            </div>
             <hr>
             <form (ngSubmit)="onSubmit()">
                 <div class="form-group">
