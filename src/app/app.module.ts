@@ -14,10 +14,11 @@ import { PersonaControllerService } from '.';
 import { UsuarioControllerService} from '.';
 import { ProductoControllerService } from './api/api';
 import { AgregarProductoComponent } from './componentes/agregar-producto/agregar-producto.component';
-import {TarjetalistallComponent} from './componentes/tarjetalistall/tarjetalistall.component';
+import { TarjetalistallComponent} from './componentes/tarjetalistall/tarjetalistall.component';
 import { IngresarProvedorComponent } from './componentes/ingresar-provedor/ingresar-provedor.component';
 import { ProvedorControllerService } from './api/provedorController.service';
 import { RegistrarUserComponent } from './componentes/registrar-user/registrar-user.component';
+import {variablesglobal} from './componentes/varglobales/variablesglobal'
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { RegistrarUserComponent } from './componentes/registrar-user/registrar-u
     HttpClientModule,
     FormsModule
   ],
-  providers: [PersonaControllerService, UsuarioControllerService, ProductoControllerService, ProvedorControllerService],
+  providers: [PersonaControllerService, UsuarioControllerService, ProductoControllerService, ProvedorControllerService, variablesglobal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

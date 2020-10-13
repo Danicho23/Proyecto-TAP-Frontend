@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {Usuario} from 'src/app/model/usuario';
 import {UsuarioControllerService} from 'src/app/api/usuarioController.service';
 import { Router } from '@angular/router';
+import {variablesglobal} from '../varglobales/variablesglobal';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,8 @@ export class HomeComponent implements OnInit {
   };
   msg='';
 
+  public iduserMai:string;
+
   constructor(private serviceUser: UsuarioControllerService, private router: Router) { }
 
   ngOnInit(): void {
@@ -32,11 +35,15 @@ export class HomeComponent implements OnInit {
       data=>{
         console.log(data);
         this.router.navigate(['all']);
+        this.iduserMai = this.user.id;
+        console.log(variablesglobal.idUserEmail);
       },
       error=>{
         console.log(error)
         this.router.navigate(['all']);
         this.msg="credenciales incorrectos";
+        variablesglobal.idUserEmail = this.user.id;
+        console.log(variablesglobal.idUserEmail);
       }
     );
     //this.user = new Usuario();

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input,Output ,EventEmitter} from '@angular/core';
 import { Usuario } from '../../model/usuario';
 import {HomeComponent} from '../home/home.component';
+import {variablesglobal} from '../varglobales/variablesglobal';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,15 @@ import {HomeComponent} from '../home/home.component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() usuarioid: string;
-  @Input('userid') useridWind='Usuario';
-  
-  constructor() { }
+  @Input() usuarioid: string = 'Usuario'; //hijo - resive una propiedad de afuera 
+  emailid = variablesglobal.idUserEmail
+  gmail=HomeComponent;
+  constructor() { 
+    console.log('hola'+this.emailid);
+  }
 
   ngOnInit(): void {
+    
   }
 
 }

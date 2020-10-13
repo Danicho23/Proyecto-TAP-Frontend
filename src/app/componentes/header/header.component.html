@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light header-area header-transparent main-header  header-sticky container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,7 +24,7 @@
                             <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v.634l.549-.317a.5.5 0 1 1 .5.866L9 6l.549.317a.5.5 0 1 1-.5.866L8.5 6.866V7.5a.5.5 0 0 1-1 0v-.634l-.549.317a.5.5 0 1 1-.5-.866L7 6l-.549-.317a.5.5 0 0 1 .5-.866l.549.317V4.5A.5.5 0 0 1 8 4zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
                           </svg>Productos
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#" [routerLink]="['registrarProvedor']"> Registrar nuevoprodcuto.
                             <svg width="3em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -60,6 +60,7 @@
                                 <path fill-rule="evenodd"
                                     d="M8 4.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5zM8 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-3.5 1.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                             </svg>
+            
                         </a>
                     </div>
                 </li>
@@ -75,8 +76,55 @@
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Ingrese el nombre" aria-label="Search" #buscartexto>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar...</button>
-                <span class="label label-primary" style="margin-left: 10px">{{usuarioid}}</span>
+                <span class="label label-primary" style="margin-left: 10px">{{emailid}}</span>
             </form>
         </div>
     </nav>
 </header>
+<!--
+<header>
+    <div class="header-area header-transparent">
+            <div class="main-header  header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                       
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-10">
+                            <div class="menu-main d-flex align-items-center justify-content-end">
+                                
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav> 
+                                        <ul id="navigation">
+                                            <li><a class="nav-link" [routerLink]="['home']">Inicio</a></li>
+                                            <li><a class="nav-link" [routerLink]="['logeado']">Productos</a></li>
+                                            
+                                            <li><a href="blog.html">Blog</a>
+                                                <ul class="submenu">
+                                                    <li><a >Productos</a></li>
+                                                    <li><a class="dropdown-item" href="#" [routerLink]="['registrarProvedor']"> Registrar nuevoprodcuto.</a></li>
+                                                    <li><a class="dropdown-item" href="#" [routerLink]="['tecnologia']">Tecnologia</a></li>
+                                                    <li><a class="dropdown-item" href="#" [routerLink]="['hogar']">Hogar.</a></li>
+                                                    <li><a class="dropdown-item" href="#" [routerLink]="['electrodomesticos']">Electrodomesticos.</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="header-right-btn f-right d-none d-lg-block ml-20">
+                                    <a href="contact.html" class="btn header-btn">Contact now</a>
+                                </div>
+                            </div>
+                        </div>   
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</header>-->
