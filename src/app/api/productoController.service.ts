@@ -17,6 +17,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
+import { OptionalProductos } from '../model/optionalProductos';
 import { Productos } from '../model/productos';
 import { ResponseEntity } from '../model/responseEntity';
 
@@ -59,19 +60,19 @@ export class ProductoControllerService {
     /**
      * buscarProductsPorNombre
      * 
-     * @param name name
+     * @param id id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public buscarProductsPorNombreUsingGET(name?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Productos>>;
-    public buscarProductsPorNombreUsingGET(name?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Productos>>>;
-    public buscarProductsPorNombreUsingGET(name?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Productos>>>;
-    public buscarProductsPorNombreUsingGET(name?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public buscarProductsPorNombreUsingGET(id?: string, observe?: 'body', reportProgress?: boolean): Observable<OptionalProductos>;
+    public buscarProductsPorNombreUsingGET(id?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<OptionalProductos>>;
+    public buscarProductsPorNombreUsingGET(id?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<OptionalProductos>>;
+    public buscarProductsPorNombreUsingGET(id?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (name !== undefined && name !== null) {
-            queryParameters = queryParameters.set('name', <any>name);
+        if (id !== undefined && id !== null) {
+            queryParameters = queryParameters.set('id', <any>id);
         }
 
         let headers = this.defaultHeaders;
@@ -89,7 +90,144 @@ export class ProductoControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.request<Array<Productos>>('get',`${this.basePath}/productos/buscar/${encodeURIComponent(String(name))}`,
+        return this.httpClient.request<OptionalProductos>('get',`${this.basePath}/productos/buscar/${encodeURIComponent(String(id))}`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * delete
+     * 
+     * @param id id
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public deleteUsingDELETE1(id: string, observe?: 'body', reportProgress?: boolean): Observable<string>;
+    public deleteUsingDELETE1(id: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<string>>;
+    public deleteUsingDELETE1(id: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<string>>;
+    public deleteUsingDELETE1(id: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling deleteUsingDELETE1.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            '*/*'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<string>('delete',`${this.basePath}/productos/producto/delete/${encodeURIComponent(String(id))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * editarProdcuto
+     * 
+     * @param body product
+     * @param idProductos idProductos
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public editarProdcutoUsingPUT(body: Productos, idProductos: string, observe?: 'body', reportProgress?: boolean): Observable<Productos>;
+    public editarProdcutoUsingPUT(body: Productos, idProductos: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Productos>>;
+    public editarProdcutoUsingPUT(body: Productos, idProductos: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Productos>>;
+    public editarProdcutoUsingPUT(body: Productos, idProductos: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling editarProdcutoUsingPUT.');
+        }
+
+        if (idProductos === null || idProductos === undefined) {
+            throw new Error('Required parameter idProductos was null or undefined when calling editarProdcutoUsingPUT.');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            '*/*'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected != undefined) {
+            headers = headers.set('Content-Type', httpContentTypeSelected);
+        }
+
+        return this.httpClient.request<Productos>('put',`${this.basePath}/productos/editarProducto/${encodeURIComponent(String(idProductos))}`,
+            {
+                body: body,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * findByCategoria
+     * 
+     * @param categoria categoria
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public findByCategoriaUsingGET(categoria?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Productos>>;
+    public findByCategoriaUsingGET(categoria?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Productos>>>;
+    public findByCategoriaUsingGET(categoria?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Productos>>>;
+    public findByCategoriaUsingGET(categoria?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (categoria !== undefined && categoria !== null) {
+            queryParameters = queryParameters.set('categoria', <any>categoria);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<Array<Productos>>('get',`${this.basePath}/productos/categoria/${encodeURIComponent(String(categoria))}`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

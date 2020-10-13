@@ -1,0 +1,29 @@
+<img src="../../../assets/imagen/otros.jpg" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.75;">
+<div class="form-group">
+    <hr>
+    <h3 style="text-align: center; color: rgb(0, 0, 0);">Mas prodcutos ...</h3>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-3 ">
+        <div class="col-sm-6" *ngFor="let product of productos">
+            <div class="card border-info mb-3" style="max-width: 18rem;">
+                <img src="{{product.imagen}}" class="card-img-top " alt="... ">
+                <hr>
+                <div class="card-body ">
+                    <ul class="list-group list-group-flush ">
+                        <h5 class="card-title ">Nombre:</h5>
+                        <p class="card-text " style="text-align: center; ">{{product.nombreProducto}}</p>
+                        <li class="card-subtitle list-group-item list-group-item-info " style="text-align: center; ">Descripcion:
+                        </li>
+                        <p class="card-text " style="text-align: center; ">{{product.descripProduct}}</p>
+
+                        <li class="card-subtitle list-group-item list-group-item-info " style="text-align: center; ">Precio:</li>
+                        <p class="card-text " style="text-align: center; ">{{product.precioProduct}}</p>
+
+                        <li class="card-subtitle list-group-item list-group-item-info " style="text-align: center; ">Marca:</li>
+                        <p class="card-text " style="text-align: center; ">{{product.idProveedor}}</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

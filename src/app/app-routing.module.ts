@@ -8,6 +8,12 @@ import { ListallproductComponent} from './componentes/listallproduct/listallprod
 import { AgregarProductoComponent } from './componentes/agregar-producto/agregar-producto.component';
 import { IngresarProvedorComponent } from './componentes/ingresar-provedor/ingresar-provedor.component';
 import { RegistrarUserComponent } from './componentes/registrar-user/registrar-user.component';
+import { ListaControlProductosComponent } from './componentes/lista-control-productos/lista-control-productos.component';
+import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
+import { ComidaComponent } from './componentes/comida/comida.component';
+import { OtrosProdcutosComponent } from './componentes/otros-prodcutos/otros-prodcutos.component';
+import { HerramientasComponent } from './componentes/herramientas/herramientas.component';
+import { VestimentaComponent } from './componentes/vestimenta/vestimenta.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +23,12 @@ const routes: Routes = [
   { path: 'electrodomesticos', component: ElectrodomesticosComponent },
   { path: 'registrarProvedor', component: IngresarProvedorComponent },
   { path: 'registrarUser', component: RegistrarUserComponent},
+  { path: 'controlProductos', component: ListaControlProductosComponent},
+  { path: 'editarProducto', component: EditarProductoComponent},
+  { path: 'vestimenta', component: VestimentaComponent},
+  { path: 'herramientas', component: HerramientasComponent},
+  { path: 'comida', component: ComidaComponent},
+  { path: 'otros', component: OtrosProdcutosComponent},
   { path: 'all', component: ListallproductComponent },
   { path: '', component: ListallproductComponent,pathMatch:'full' },
   { path: '**', redirectTo: '/',pathMatch:'full' }

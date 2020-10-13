@@ -14,11 +14,19 @@ import { PersonaControllerService } from '.';
 import { UsuarioControllerService} from '.';
 import { ProductoControllerService } from './api/api';
 import { AgregarProductoComponent } from './componentes/agregar-producto/agregar-producto.component';
-import { TarjetalistallComponent} from './componentes/tarjetalistall/tarjetalistall.component';
+import {TarjetalistallComponent} from './componentes/tarjetalistall/tarjetalistall.component';
 import { IngresarProvedorComponent } from './componentes/ingresar-provedor/ingresar-provedor.component';
 import { ProvedorControllerService } from './api/provedorController.service';
 import { RegistrarUserComponent } from './componentes/registrar-user/registrar-user.component';
-import {variablesglobal} from './componentes/varglobales/variablesglobal'
+import { ListaControlProductosComponent } from './componentes/lista-control-productos/lista-control-productos.component';
+import { EditarProductoComponent } from './componentes/editar-producto/editar-producto.component';
+import { TecnologiaComponent } from './componentes/tecnologia/tecnologia.component';
+import { HogarComponent } from './componentes/hogar/hogar.component';
+import { ElectrodomesticosComponent } from './componentes/electrodomesticos/electrodomesticos.component';
+import { OtrosProdcutosComponent } from './componentes/otros-prodcutos/otros-prodcutos.component';
+import { ComidaComponent } from './componentes/comida/comida.component';
+import { HerramientasComponent } from './componentes/herramientas/herramientas.component';
+import { VestimentaComponent } from './componentes/vestimenta/vestimenta.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +39,16 @@ import {variablesglobal} from './componentes/varglobales/variablesglobal'
     AgregarProductoComponent,
     TarjetalistallComponent,
     IngresarProvedorComponent,
-    RegistrarUserComponent
+    RegistrarUserComponent,
+    ListaControlProductosComponent,
+    EditarProductoComponent,
+    TecnologiaComponent,
+    HogarComponent,
+    ElectrodomesticosComponent,
+    OtrosProdcutosComponent,
+    ComidaComponent,
+    HerramientasComponent,
+    VestimentaComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +56,7 @@ import {variablesglobal} from './componentes/varglobales/variablesglobal'
     HttpClientModule,
     FormsModule
   ],
-  providers: [PersonaControllerService, UsuarioControllerService, ProductoControllerService, ProvedorControllerService, variablesglobal],
+  providers: [PersonaControllerService, UsuarioControllerService, ProductoControllerService, ProvedorControllerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

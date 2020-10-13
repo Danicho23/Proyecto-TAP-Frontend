@@ -28,7 +28,7 @@ export class AgregarProductoComponent implements OnInit {
   urlImagen = null;
   // variables
   producto: Productos = new Productos();
-  proveedor: Proveedor[];
+  proveedor: Proveedor [];
   submitted = false;
   url = null;
   // propiedades del bucket

@@ -11,6 +11,7 @@
  */
 
 export class Productos { 
+    categoria?: string;
     catidadProduct?: string;
     descripProduct?: string;
     idProductos?: string;
