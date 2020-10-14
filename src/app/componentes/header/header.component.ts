@@ -11,7 +11,6 @@ import {variablesglobal} from '../varglobales/variablesglobal';
 export class HeaderComponent implements OnInit {
   @Input() usuarioid: string = 'Usuario'; //hijo - resive una propiedad de afuera 
   emailid = variablesglobal.idUserEmail
-  gmail=HomeComponent;
   constructor() { 
     console.log('hola'+this.emailid);
   }

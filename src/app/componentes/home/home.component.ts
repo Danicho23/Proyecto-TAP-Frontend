@@ -3,7 +3,6 @@ import {NgForm} from '@angular/forms';
 import {Usuario} from 'src/app/model/usuario';
 import {UsuarioControllerService} from 'src/app/api/usuarioController.service';
 import { Router } from '@angular/router';
-import {variablesglobal} from '../varglobales/variablesglobal';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +14,7 @@ export class HomeComponent implements OnInit {
   //user2: Usuario = {id: ''};
   user: Usuario = {
     id: null,
-    idPersona: null,
-    password: null,
-    userName: null,
-    userType: null
+    password: null
   };
   msg='';
 
@@ -31,19 +27,15 @@ export class HomeComponent implements OnInit {
   }
 
   loginUser(){
-    this.serviceUser.saveUserUsingPOST(this.user).subscribe(
+    this.serviceUser.verificarUsuarioUsingGET(this.user.id, this.user.password).subscribe(
       data=>{
         console.log(data);
         this.router.navigate(['all']);
         this.iduserMai = this.user.id;
-        console.log(variablesglobal.idUserEmail);
       },
       error=>{
         console.log(error)
-        this.router.navigate(['all']);
         this.msg="credenciales incorrectos";
-        variablesglobal.idUserEmail = this.user.id;
-        console.log(variablesglobal.idUserEmail);
       }
     );
     //this.user = new Usuario();

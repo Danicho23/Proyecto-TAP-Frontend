@@ -12,8 +12,5 @@
 
 export class Usuario { 
     id?: string;
-    idPersona?: string;
     password?: string;
-    userName?: string;
-    userType?: string;
 }

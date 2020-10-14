@@ -139,4 +139,53 @@ export class UsuarioControllerService {
         );
     }
 
+    /**
+     * verificarUsuario
+     * 
+     * @param pass pass
+     * @param user user
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public verificarUsuarioUsingGET(pass?: string, user?: string, observe?: 'body', reportProgress?: boolean): Observable<Usuario>;
+    public verificarUsuarioUsingGET(pass?: string, user?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Usuario>>;
+    public verificarUsuarioUsingGET(pass?: string, user?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Usuario>>;
+    public verificarUsuarioUsingGET(pass?: string, user?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (pass !== undefined && pass !== null) {
+            queryParameters = queryParameters.set('pass', <any>pass);
+        }
+        if (user !== undefined && user !== null) {
+            queryParameters = queryParameters.set('user', <any>user);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<Usuario>('get',`${this.basePath}/user/buscar/${encodeURIComponent(String(user))},${encodeURIComponent(String(pass))}`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
 }
