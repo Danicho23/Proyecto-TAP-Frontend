@@ -27,5 +27,14 @@ export class ListaProveedorComponent implements OnInit {
       }
       );
   }
+  deleteProveedor(id: string) {
+    this.service.deleteUsingDELETE2(id)
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        error => console.log(error));
+    this.listarProductos();
+  }
 
 }

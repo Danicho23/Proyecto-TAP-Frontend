@@ -10,7 +10,8 @@
  * Do not edit the class manually.
  */
 
-export class Persona { 
+export class
+ Persona { 
     apellido?: string;
     cedula?: string;
     email?: string;
