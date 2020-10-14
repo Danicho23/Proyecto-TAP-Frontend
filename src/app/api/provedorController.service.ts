@@ -57,6 +57,50 @@ export class ProvedorControllerService {
 
 
     /**
+     * findByQueryProve
+     * 
+     * @param nombre nombre
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public findByQueryProveUsingGET(nombre?: string, observe?: 'body', reportProgress?: boolean): Observable<Array<Proveedor>>;
+    public findByQueryProveUsingGET(nombre?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Proveedor>>>;
+    public findByQueryProveUsingGET(nombre?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Proveedor>>>;
+    public findByQueryProveUsingGET(nombre?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (nombre !== undefined && nombre !== null) {
+            queryParameters = queryParameters.set('nombre', <any>nombre);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.request<Array<Proveedor>>('get',`${this.basePath}/proveedor/buscarQuery/${encodeURIComponent(String(nombre))}`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * listarProvedor
      * 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.

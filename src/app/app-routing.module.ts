@@ -14,6 +14,7 @@ import { ComidaComponent } from './componentes/comida/comida.component';
 import { OtrosProdcutosComponent } from './componentes/otros-prodcutos/otros-prodcutos.component';
 import { HerramientasComponent } from './componentes/herramientas/herramientas.component';
 import { VestimentaComponent } from './componentes/vestimenta/vestimenta.component';
+import { ListaProveedorComponent } from './componentes/lista-proveedor/lista-proveedor.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'herramientas', component: HerramientasComponent},
   { path: 'comida', component: ComidaComponent},
   { path: 'otros', component: OtrosProdcutosComponent},
+  { path: 'proveedores', component: ListaProveedorComponent},
   { path: 'all', component: ListallproductComponent },
   { path: '', component: ListallproductComponent,pathMatch:'full' },
   { path: '**', redirectTo: '/',pathMatch:'full' }

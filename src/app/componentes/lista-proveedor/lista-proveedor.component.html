@@ -1,0 +1,33 @@
+<img src="../../../assets/imagen/proveedor.jpg" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.60;">
+<div class="container" style="text-align: center;">
+    <hr>
+    <h1 style="text-align: center;">Control de prodcutos</h1>
+    <hr>
+    <br>
+    <table class="table">
+        <thead class="thead-dark center">
+            <tr>
+                <th scope="col">ID Provedor.</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Ruc</th>
+                <th scope="col">Fecha de entrega</th>
+                <th> <button type="button" class="btn btn-warning " (click)=listarProductos()><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-counterclockwise" fill="currentColor"xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                            <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+                        </svg></button></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prove of proveedor" style="text-align: center;">
+
+                <td scope="row">{{prove.id}}</td>
+                <td scope="row">{{prove.nombre}}</td>
+                <td>{{prove.ruc}}</td>
+                <td>{{prove.fechaEntrega}}</td>
+                <td><button class="btn btn-danger">Delete</button></td>
+                <td>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#ventanaModal">Editar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

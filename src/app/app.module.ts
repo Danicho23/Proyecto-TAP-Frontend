@@ -27,6 +27,7 @@ import { OtrosProdcutosComponent } from './componentes/otros-prodcutos/otros-pro
 import { ComidaComponent } from './componentes/comida/comida.component';
 import { HerramientasComponent } from './componentes/herramientas/herramientas.component';
 import { VestimentaComponent } from './componentes/vestimenta/vestimenta.component';
+import { ListaProveedorComponent } from './componentes/lista-proveedor/lista-proveedor.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { VestimentaComponent } from './componentes/vestimenta/vestimenta.compone
     OtrosProdcutosComponent,
     ComidaComponent,
     HerramientasComponent,
-    VestimentaComponent
+    VestimentaComponent,
+    ListaProveedorComponent
   ],
   imports: [
     BrowserModule,
