@@ -19,7 +19,7 @@ export class AgregarProductoComponent implements OnInit {
     });
   }
   file: File;
-  // variables S3;
+  // variables S3 de aws;
 
   showImagen = false;
   error = false;
